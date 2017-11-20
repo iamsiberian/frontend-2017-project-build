@@ -1,0 +1,10 @@
+.footer {
+  background: rgba(162, 226, 251, 0.8);
+
+  &__container {
+    width: 1000px;
+    margin: auto;
+    box-sizing: border-box;
+    padding: 40px;
+  }
+}
