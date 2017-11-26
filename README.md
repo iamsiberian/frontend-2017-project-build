@@ -1,7 +1,7 @@
 # frontend-2017-project-build
 
 An example of a simple front-end web application.
-Technology stack: HTML5, CSS3, Nunjucks, SCSS, Gulp.
+Technology stack: HTML5, CSS3, Handlebars, SCSS, Gulp.
 
 To run the sample, follow these steps:
 
