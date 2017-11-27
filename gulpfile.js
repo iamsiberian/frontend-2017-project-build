@@ -1,12 +1,11 @@
 var gulp = require('gulp');
-var concat = require('gulp-concat');
 var sass = require('gulp-sass');
 var handlebars = require('gulp-compile-handlebars');
 var rename = require('gulp-rename');
 var browserSync = require('browser-sync').create();
 
 var path = {
-    css:  './src/**/*.scss',
+    css:  './src/*.scss',
     html: {
         pages: './src/pages/**/*.hbs',
         partials: './src/partials/'
@@ -26,7 +25,6 @@ gulp.task('default', ['build', 'serve', 'watch']);
 gulp.task('css', function () {
   return gulp.src(path.css)
     .pipe(sass().on('error', sass.logError))
-    .pipe(concat('style.css'))
     .pipe(gulp.dest(path.dist.css));
 });
 
