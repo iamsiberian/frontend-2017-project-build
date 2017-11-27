@@ -6,14 +6,18 @@ var rename = require('gulp-rename');
 var browserSync = require('browser-sync').create();
 
 var path = {
-    css:  './src/styles/*.scss',
+    css:  './src/**/*.scss',
     html: {
-        pages: './src/pages/*.hbs',
+        pages: './src/pages/**/*.hbs',
         partials: './src/partials/'
     },
     dist: {
-      css:  './dist/styles/',
+      css:  './dist/',
       html: './dist/'
+    },
+    watch: {
+        css: './src/**/*.scss',
+        html: './src/**/*.hbs'
     }
 };
 
@@ -33,6 +37,7 @@ gulp.task('html', function () {
             batch: [path.html.partials]
         }))
         .pipe(rename({
+            dirname: '.',
             extname: '.html'
         }))
         .pipe(gulp.dest(path.dist.html));
@@ -41,9 +46,8 @@ gulp.task('html', function () {
 gulp.task('build', ['html', 'css']);
 
 gulp.task('watch', function () {
-  gulp.watch(path.css, ['css']);
-  gulp.watch(path.html.pages, ['html']);
-  gulp.watch(path.html.partials, ['html']);
+  gulp.watch(path.watch.css, ['css']);
+  gulp.watch(path.watch.html, ['html']);
 });
 
 gulp.task('serve', ['watch'], function() {
